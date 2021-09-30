@@ -3,7 +3,9 @@
 
 # Actions
 - Why: i need repo notification for telegram bot dev team (send repo msg to group)
-- Usage: just add & edit it in /.github/workflows/main.yml
-- 
-- 起因: 我需要送出儲存庫訊息給Telegram Bot開發團隊(送repo內的變化給group)
-- 用法: 檔案放置在/.github/workflows/main.yml 根據需求修改即可
+- Usage: 
+  - just add & edit it in /.github/workflows/main.yml
+  - in Settings/Secret add two entry: [TELEGRAM_TO], [TELEGRAM_TOKEN]
+
+[TELEGRAM_TO]:https://github.com/appleboy/telegram-action
+[TELEGRAM_TOKEN]:https://github.com/appleboy/telegram-action
