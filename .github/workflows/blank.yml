@@ -24,56 +24,56 @@ on:
     types: [created]
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: custom message push
-        if: ${{ github.event_name == 'push' }}
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          format: html
-          disable_web_page_preview: true
-          message: <a href="${{github.event.sender.html_url}}">${{github.actor}}</a>
-            於 <a href="${{github.event.repository.html_url}}">${{github.event.repository.name}}</a>
-            做了<a href="${{github.event.commits[0].url}}">${{github.event.commits[0].message}}</a>
-      - name: custom message issues
-        if: ${{ github.event_name == 'issues' }}
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          format: html
-          disable_web_page_preview: true
-          message: <a href="${{github.event.sender.html_url}}">${{github.actor}}</a>
-            於 <a href="${{github.event.repository.html_url}}">${{github.event.repository.name}}</a>
-            ${{github.event.action}} issue <a href="${{github.event.issue.html_url}}">${{github.event.issue.title}}</a>
-      - name: custom message project_card
-        if: ${{ github.event_name == 'project_card' }}
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          format: html
-          disable_web_page_preview: true
-          message: <a href="${{github.event.sender.html_url}}">${{github.actor}}</a>
-            於 <a href="${{github.event.repository.html_url}}">${{github.event.repository.name}}</a>
-            <a href="https://github.com/t1ina2003/ectrade_bot_new/projects/1">專案</a> ${{github.event.action}} item 
-      - name: custom message pull_request
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          format: html
-          disable_web_page_preview: true
-          message: <a href="${{github.event.sender.html_url}}">${{github.actor}}</a>
-            於 <a href="${{github.event.repository.html_url}}">${{github.event.repository.name}}</a>
-            ${{github.event.action}} pull_request <a href="${{github.event.pull_request.html_url}}">${{github.event.pull_request.title}}</a>
+# jobs:
+#   # This workflow contains a single job called "build"
+#   build:
+#     name: Build
+#     runs-on: ubuntu-latest
+#     # Steps represent a sequence of tasks that will be executed as part of the job
+#     steps:
+#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#       - uses: actions/checkout@v2
+#       - name: custom message push
+#         if: ${{ github.event_name == 'push' }}
+#         uses: appleboy/telegram-action@master
+#         with:
+#           to: ${{ secrets.TELEGRAM_TO }}
+#           token: ${{ secrets.TELEGRAM_TOKEN }}
+#           format: html
+#           disable_web_page_preview: true
+#           message: <a href="${{github.event.sender.html_url}}">${{github.actor}}</a>
+#             於 <a href="${{github.event.repository.html_url}}">${{github.event.repository.name}}</a>
+#             做了<a href="${{github.event.commits[0].url}}">${{github.event.commits[0].message}}</a>
+#       - name: custom message issues
+#         if: ${{ github.event_name == 'issues' }}
+#         uses: appleboy/telegram-action@master
+#         with:
+#           to: ${{ secrets.TELEGRAM_TO }}
+#           token: ${{ secrets.TELEGRAM_TOKEN }}
+#           format: html
+#           disable_web_page_preview: true
+#           message: <a href="${{github.event.sender.html_url}}">${{github.actor}}</a>
+#             於 <a href="${{github.event.repository.html_url}}">${{github.event.repository.name}}</a>
+#             ${{github.event.action}} issue <a href="${{github.event.issue.html_url}}">${{github.event.issue.title}}</a>
+#       - name: custom message project_card
+#         if: ${{ github.event_name == 'project_card' }}
+#         uses: appleboy/telegram-action@master
+#         with:
+#           to: ${{ secrets.TELEGRAM_TO }}
+#           token: ${{ secrets.TELEGRAM_TOKEN }}
+#           format: html
+#           disable_web_page_preview: true
+#           message: <a href="${{github.event.sender.html_url}}">${{github.actor}}</a>
+#             於 <a href="${{github.event.repository.html_url}}">${{github.event.repository.name}}</a>
+#             <a href="https://github.com/t1ina2003/ectrade_bot_new/projects/1">專案</a> ${{github.event.action}} item 
+#       - name: custom message pull_request
+#         if: ${{ github.event_name == 'pull_request' }}
+#         uses: appleboy/telegram-action@master
+#         with:
+#           to: ${{ secrets.TELEGRAM_TO }}
+#           token: ${{ secrets.TELEGRAM_TOKEN }}
+#           format: html
+#           disable_web_page_preview: true
+#           message: <a href="${{github.event.sender.html_url}}">${{github.actor}}</a>
+#             於 <a href="${{github.event.repository.html_url}}">${{github.event.repository.name}}</a>
+#             ${{github.event.action}} pull_request <a href="${{github.event.pull_request.html_url}}">${{github.event.pull_request.title}}</a>
